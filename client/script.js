@@ -24,6 +24,7 @@
         break;
       case 'typing':
         typingUsers = message.users;
+        showWritingUser(typingUsers);
         break;
       default:
         break;
@@ -59,3 +60,14 @@
     }
   });
 })();
+
+function showWritingUser(users) {
+  const container = document.getElementById('writingUsers');
+  container.innerHTML = '';
+
+  users.forEach((user) => {
+    const userElement = document.createElement('div');
+    userElement.innerText = user.name + ' is typing...';
+    container.appendChild(userElement);
+  });
+}
