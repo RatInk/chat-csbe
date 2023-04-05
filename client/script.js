@@ -21,6 +21,7 @@
         break;
       case 'activeUsers':
         activeUsers = message.users;
+        updateactiveUsers(activeUsers);
         break;
       case 'typing':
         typingUsers = message.users;
@@ -59,3 +60,14 @@
     }
   });
 })();
+
+function updateactiveUsers(users) {
+  const container = document.getElementById('activeUsers');
+  container.innerHTML = '';
+
+  users.forEach((user) => {
+    const userElement = document.createElement('div');
+    userElement.innerText = user.name;
+    container.appendChild(userElement);
+  });
+}
