@@ -7,6 +7,10 @@ COPY . .
 
 RUN yarn
 
+RUN yarn add jest
+
+RUN yarn add lint
+
 RUN yarn lint
 
 RUN yarn test
