@@ -1,17 +1,18 @@
-# Use the official Node.js image as the base image
-FROM node:18
 
-# Set the working directory inside the container
-WORKDIR ...
+FROM node:18-alpine
 
-# Copy the package.json and package-lock.json files to the container
-COPY ...
+WORKDIR /app
 
-# Install the dependencies
-RUN ...
+COPY . .
 
-# Copy the source code to the container
-COPY ...
+RUN yarn
 
-# Start the server when the container starts
-CMD ...
+RUN yarn lint
+
+RUN yarn test
+
+RUN node_modules/.bin/tsc
+
+RUN yarn build
+
+ENTRYPOINT ["node", "./build/index.js"]
