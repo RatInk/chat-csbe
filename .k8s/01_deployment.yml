@@ -1,24 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: m324-team6-m324-team6@
-  namespace: m324-team6
+  name: ${APP_NAME} # Change this to your app name
+  namespace: ${KUBERNETES_NAMESPACE} # Ask the teacher for the namespace name
   labels:
-    app: chat-csbe
+    app: ${APP_NAME} # Change this to your app name
 spec:
   replicas: 1
   revisionHistoryLimit: 2
   selector:
     matchLabels:
-      app: m324-team6-m324-team6@
+      app: ${APP_NAME} # Change this to your app name
   template:
     metadata:
       labels:
-        app: m324-team6-m324-team6@
+        app: ${APP_NAME} # Change this to your app name
     spec:
       containers:
-        - name: m324-team6-m324-team6@
-          image: kyuubimango/app:latest
+        - name: ${APP_NAME} # Change this to your app name
+          image: ${IMAGE_TAG} # Change this to your image tag
           command:
             - /bin/sh
             - "-c"
