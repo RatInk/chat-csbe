@@ -7,7 +7,7 @@
     "build": "rimraf ./build && tsc",
     "dev": "npx nodemon",
     "start": "node build/index.js",
-    "lint": "npm run eslint"
+    "lint": "eslint --ext .ts --ext .js src/"
   },
   "keywords": [],
   "author": "",
@@ -26,6 +26,7 @@
     "eslint-config-prettier": "^8.5.0", 
     "eslint-plugin-jest": "^26.6.0", 
     "eslint-plugin-prettier": "^4.2.1", 
+    "eslint": "^8.0.0",
     "livereload": "^0.9.3", 
     "nodemon": "^2.0.19", 
     "prettier": "^2.7.1", 
