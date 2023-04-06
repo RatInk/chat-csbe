@@ -22,25 +22,25 @@ jobs:
           push: true
           tags: ${{ env.IMAGE_TAG }}
 
-      - name: Check and Install kubectl
-        uses: azure/setup-kubectl@v3
-        with:
-          version: 'latest'
-        id: install
-        
-      - name: Set Kubernetes Context
-        uses: azure/k8s-set-context@v3
-        with:
-          kubeconfig: ${{ secrets.KUBE_CONFIG }}
+      - name: Check and Install kubectl
+        uses: azure/setup-kubectl@v3
+        with:
+          version: 'latest'
+        id: install
 
-      - name: Replace and Apply Kubernetes Manifests
-        uses: swdotcom/update-and-apply-kubernetes-configs@v1
-        with:
-          k8-config-file-paths: |
-            ./.k8s/00_namespace.yml
-            ./.k8s/01_deployment.yml
-            ./.k8s/02_service.yml
-            ./.k8s/03_ingress.yml
-            ./.k8s/04_ingress_example.yml
+      - name: Set Kubernetes Context
+        uses: azure/k8s-set-context@v3
+        with:
+          kubeconfig: ${{ secrets.KUBE_CONFIG }}
 
-          replacement-method: defined
+      - name: Replace and Apply Kubernetes Manifests
+        uses: swdotcom/update-and-apply-kubernetes-configs@v1
+        with:
+          k8-config-file-paths: |
+            ./.k8s/00_namespace.yml
+            ./.k8s/01_deployment.yml
+            ./.k8s/02_service.yml
+            ./.k8s/03_ingress.yml
+            ./.k8s/04_ingress_example.yml
+
+          replacement-method: defined
