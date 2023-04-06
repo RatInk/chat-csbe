@@ -9,7 +9,7 @@ RUN yarn
 
 RUN yarn add jest
 
-RUN yarn test
+RUN yarn jest
 
 RUN node_modules/.bin/tsc
 
