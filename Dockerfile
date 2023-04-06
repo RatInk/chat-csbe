@@ -15,4 +15,6 @@ RUN node_modules/.bin/tsc
 
 RUN yarn build
 
+RUN yarn lint
+
 ENTRYPOINT ["node", "./build/index.js"]
