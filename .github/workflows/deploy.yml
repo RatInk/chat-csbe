@@ -3,6 +3,12 @@ on:
     branches:
       - master
 
+env:
+  APP_NAME: app
+  IMAGE_TAG: kyuubimango/app:latest
+  KUBERNETES_NAMESPACE: m324-team6
+  BASE_URL: ratchat.m324.hackerman.ch
+
 jobs:
   build-and-deploy:
     runs-on: self-hosted
